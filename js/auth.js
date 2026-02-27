@@ -133,4 +133,5 @@ class AuthManager {
 // Initialize auth manager when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new AuthManager();
+    window.__authReady = true;
 });

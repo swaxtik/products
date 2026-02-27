@@ -58,6 +58,70 @@
         </div>
     </div>
 
-    <script src="js/auth.js?v=20260227-1"></script>
+    <script defer src="js/auth.js?v=20260227-1"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Fallback: keep login usable if external auth.js fails to load on hosting.
+            setTimeout(() => {
+                if (window.__authReady) return;
+
+                const adminBtn = document.getElementById('adminBtn');
+                const userBtn = document.getElementById('userBtn');
+                const adminLoginBtn = document.getElementById('adminLoginBtn');
+                const userLoginBtn = document.getElementById('userLoginBtn');
+                const adminPassword = document.getElementById('adminPassword');
+                const adminLogin = document.getElementById('adminLogin');
+                const userLogin = document.getElementById('userLogin');
+                const ADMIN_PASSWORD = 'Swasthik@Abj';
+
+                const showError = (message) => {
+                    const existingError = document.querySelector('.error-message');
+                    if (existingError) existingError.remove();
+
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-message';
+                    errorDiv.style.cssText = 'background:#FEE2E2;border:1px solid #FECACA;color:#DC2626;padding:12px;border-radius:12px;margin-top:16px;font-size:14px;text-align:center;';
+                    errorDiv.textContent = message;
+                    const loginForm = document.querySelector('.login-form:not(.hidden)');
+                    loginForm.appendChild(errorDiv);
+                    setTimeout(() => errorDiv.remove(), 3000);
+                };
+
+                const switchRole = (role) => {
+                    if (role === 'admin') {
+                        adminBtn.classList.add('active');
+                        userBtn.classList.remove('active');
+                        adminLogin.classList.remove('hidden');
+                        userLogin.classList.add('hidden');
+                    } else {
+                        userBtn.classList.add('active');
+                        adminBtn.classList.remove('active');
+                        userLogin.classList.remove('hidden');
+                        adminLogin.classList.add('hidden');
+                    }
+                };
+
+                const setAuthStatus = (role) => {
+                    localStorage.setItem('userRole', role);
+                    localStorage.setItem('authTimestamp', Date.now().toString());
+                    window.location.href = 'gallery.html';
+                };
+
+                adminBtn.addEventListener('click', () => switchRole('admin'));
+                userBtn.addEventListener('click', () => switchRole('user'));
+                adminLoginBtn.addEventListener('click', () => {
+                    if (adminPassword.value === ADMIN_PASSWORD) {
+                        setAuthStatus('admin');
+                    } else {
+                        showError('Invalid password');
+                    }
+                });
+                userLoginBtn.addEventListener('click', () => setAuthStatus('user'));
+                adminPassword.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') adminLoginBtn.click();
+                });
+            }, 1200);
+        });
+    </script>
 </body>
 </html>
