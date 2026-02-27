@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Abharan Jewellers Udupi Since-1935 Collections</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#8B1538">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Jewelry Gallery">
+    <link rel="icon" type="image/webp" href="a logo copy.webp">
+    <link rel="shortcut icon" type="image/webp" href="a logo copy.webp">
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3R5bGU9ImJhY2tncm91bmQ6ICM4QjE1Mzg7Ij48cGF0aCBkPSJNNiAzaDEybDQgNi0xMCAxMS0xMC0xMSA0LTZ6Ii8+PHBhdGggZD0iTTExIDNoMnoiLz48L3N2Zz4=">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">
+    <img src="a logo copy.webp" alt="My Logo" width="150" height="75" />
+</div>
+
+                    <div class="header-text">
+                        <h1>Abharan Jewellers Udupi
+                             Since - 1935 Collections</h1>
+                        <span class="header-subtitle">Premium Collections</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="theme-toggle">
+                        <button id="themeToggle" class="icon-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="user-info">
+                        <span id="userRole" class="user-role"></span>
+                        <button id="logoutBtn" class="icon-btn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                                <polyline points="16,17 21,12 16,7"/>
+                                <line x1="21" y1="12" x2="9" y2="12"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="app-main">
+            <!-- Categories View -->
+            <div id="categoriesView" class="categories-view">
+                <div class="view-header">
+                    <h2>Jewelry Collections</h2>
+                    <div id="adminCategoryControls" class="admin-controls hidden">
+                        <button id="addCategoryBtn" class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            Add Collection
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="categoriesGrid" class="categories-grid"></div>
+                
+                <div id="emptyCategoriesState" class="empty-state hidden">
+                    <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M6 3h12l4 6-10 11-10-11 4-6z"/>
+                        <path d="M11 3h2"/>
+                    </svg>
+                    <h3>No collections yet</h3>
+                    <p>Create your first jewelry collection to get started</p>
+                </div>
+            </div>
+
+            <!-- Gallery View -->
+            <div id="galleryView" class="gallery-view hidden">
+                <div class="view-header">
+                    <button id="backToCategories" class="back-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15,18 9,12 15,6"/>
+                        </svg>
+                        Collections
+                    </button>
+                    <h2 id="currentCategoryTitle">Collection</h2>
+                    <div id="adminGalleryControls" class="admin-controls hidden">
+                        <button id="addSubcategoryBtn" class="btn btn-secondary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="12" y1="5" x2="12" y2="19"/>
+                                <line x1="5" y1="12" x2="19" y2="12"/>
+                            </svg>
+                            Add Sub-Category
+                        </button>
+                        <button id="openBulkProductBtn" class="btn btn-secondary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Bulk Product Upload
+                        </button>
+                        <button id="openBulkImageBtn" class="btn btn-primary">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7,10 12,15 17,10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Bulk Image Upload
+                        </button>
+                    </div>
+                </div>
+
+                <div class="gallery-container">
+                    <div class="subcategory-toolbar">
+                        <button id="backToSubcategories" class="back-btn hidden">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"/>
+                            </svg>
+                            Sub-Categories
+                        </button>
+                        <label for="subcategoryFilter">Sub-Category</label>
+                        <select id="subcategoryFilter" class="form-input">
+                            <option value="all">All Sub-Categories</option>
+                        </select>
+                    </div>
+                    <div id="subcategoryCards" class="subcategory-cards"></div>
+                    <div id="gallery" class="gallery"></div>
+                    <div id="emptyGalleryState" class="empty-state hidden">
+                        <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M6 3h12l4 6-10 11-10-11 4-6z"/>
+                            <path d="M11 3h2"/>
+                        </svg>
+                        <h3>No items in this collection</h3>
+                        <p>Add some beautiful jewelry pieces to showcase</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Category Modal -->
+    <div id="categoryModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="categoryModalTitle">Add Collection</h2>
+                <button id="closeCategoryModal" class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="categoryName">Collection Name</label>
+                    <input type="text" id="categoryName" placeholder="e.g., Gold Rings, Diamond Necklaces" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label for="categoryDescription">Description</label>
+                    <textarea id="categoryDescription" placeholder="Describe this jewelry collection..." class="form-textarea"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="categoryImage">Collection Cover Image</label>
+                    <div class="upload-area category-upload">
+                        <input type="file" id="categoryImage" accept="image/*" class="file-input">
+                        <label for="categoryImage" class="upload-label">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17,8 12,3 7,8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            <span>Choose cover image</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button id="cancelCategory" class="btn btn-secondary">Cancel</button>
+                <button id="saveCategory" class="btn btn-primary">Save Collection</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div id="uploadModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Jewelry Items</h2>
+                <button id="closeUploadModal" class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="upload-area">
+                    <input type="file" id="fileInput" multiple accept="image/*" class="file-input">
+                    <label for="fileInput" class="upload-label">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17,8 12,3 7,8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <span>Choose jewelry images or drag and drop</span>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label for="itemSubcategory">Sub-Category (Optional)</label>
+                    <select id="itemSubcategory" class="form-input">
+                        <option value="">No Sub-Category</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemTagNumber">Tag Number</label>
+                    <input type="text" id="itemTagNumber" placeholder="e.g., ABJ-1001 (single upload optional)" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemTitle">Item Title</label>
+                    <input type="text" id="itemTitle" placeholder="e.g., Diamond Solitaire Ring (optional when metadata exists)" class="form-input">
+                </div>
+                
+                <div class="form-group">
+                    <label for="itemDescription">Description</label>
+                    <textarea id="itemDescription" placeholder="Describe the jewelry piece..." class="form-textarea"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="itemPrice">Price (Optional)</label>
+                    <input type="text" id="itemPrice" placeholder="e.g., $2,500" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemGoldType">Gold Type (Optional)</label>
+                    <input type="text" id="itemGoldType" placeholder="e.g., 22K / 18K Rose Gold" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemWeight">Weight (Optional)</label>
+                    <input type="text" id="itemWeight" placeholder="e.g., 8.45 g" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="itemGst">GST (Optional)</label>
+                    <input type="text" id="itemGst" placeholder="e.g., 3%" class="form-input">
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button id="cancelUpload" class="btn btn-secondary">Cancel</button>
+                <button id="confirmUpload" class="btn btn-primary">Add Items</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Metadata Import Modal -->
+    <div id="metadataModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Import Product Metadata</h2>
+                <button id="closeMetadataModal" class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="metadata-hint">Required column: <strong>tagNumber</strong></p>
+                <p class="metadata-hint">Recommended columns: <strong>title, description, price, goldType, weight, gst, category, subCategory</strong></p>
+                <div class="metadata-actions">
+                    <button id="downloadTemplateBtn" class="btn btn-secondary">Download Template</button>
+                    <button id="downloadMetadataBtn" class="btn btn-secondary">Download Existing Metadata</button>
+                </div>
+                <div class="upload-area metadata-upload">
+                    <input type="file" id="metadataFileInput" accept=".xlsx,.xls,.csv" class="file-input">
+                    <label for="metadataFileInput" class="upload-label">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17,8 12,3 7,8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        <span id="metadataFileLabel">Choose Excel/CSV file</span>
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelMetadataImport" class="btn btn-secondary">Cancel</button>
+                <button id="confirmMetadataImport" class="btn btn-primary">Import Metadata</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Sub-Category Modal -->
+    <div id="subcategoryModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Add Sub-Category</h2>
+                <button id="closeSubcategoryModal" class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="subcategoryName">Sub-Category Name</label>
+                    <input type="text" id="subcategoryName" placeholder="e.g., Bridal Rings, Daily Wear, Antique Set" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="subcategoryDescription">Description</label>
+                    <textarea id="subcategoryDescription" placeholder="Describe this sub-category..." class="form-textarea"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="subcategoryImage">Sub-Category Cover Image</label>
+                    <div class="upload-area subcategory-upload">
+                        <input type="file" id="subcategoryImage" accept="image/*" class="file-input">
+                        <label for="subcategoryImage" class="upload-label">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="17,8 12,3 7,8"/>
+                                <line x1="12" y1="3" x2="12" y2="15"/>
+                            </svg>
+                            <span>Choose sub-category cover image</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelSubcategory" class="btn btn-secondary">Cancel</button>
+                <button id="saveSubcategory" class="btn btn-primary">Save Sub-Category</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div id="productDetailsModal" class="modal hidden">
+        <div class="modal-content details-modal-content">
+            <div class="modal-header">
+                <h2 id="detailsTitle">Product Details</h2>
+                <button id="closeDetailsModal" class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/>
+                        <line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body details-modal-body">
+                <img id="detailsImage" class="details-image" alt="">
+                <p id="detailsDescription" class="details-description"></p>
+                <div id="detailsSpecs" class="details-specs"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden">
+        <div class="lightbox-content">
+            <button id="closeLightbox" class="lightbox-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+            </button>
+
+            <button id="toggleLightboxInfo" class="lightbox-info-toggle" aria-label="Show details">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="16" x2="12" y2="12"/>
+                    <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+            </button>
+            
+            <button id="prevImage" class="lightbox-nav lightbox-prev">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15,18 9,12 15,6"/>
+                </svg>
+            </button>
+            
+            <div class="lightbox-image-container">
+                <img id="lightboxImage" class="lightbox-image" alt="">
+            </div>
+            
+            <button id="nextImage" class="lightbox-nav lightbox-next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9,18 15,12 9,6"/>
+                </svg>
+            </button>
+            
+            <div id="lightboxInfoPanel" class="lightbox-info hidden">
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDescription"></p>
+                <p id="lightboxPrice" class="lightbox-price"></p>
+                <div id="lightboxSpecs" class="lightbox-specs hidden">
+                    <div class="lightbox-spec-row"><span class="spec-label">Tag</span><span id="lightboxTag" class="spec-value"></span></div>
+                    <div class="lightbox-spec-row"><span class="spec-label">Sub-Category</span><span id="lightboxSubcategory" class="spec-value"></span></div>
+                    <div class="lightbox-spec-row"><span class="spec-label">Gold Type</span><span id="lightboxGoldType" class="spec-value"></span></div>
+                    <div class="lightbox-spec-row"><span class="spec-label">Weight</span><span id="lightboxWeight" class="spec-value"></span></div>
+                    <div class="lightbox-spec-row"><span class="spec-label">GST</span><span id="lightboxGst" class="spec-value"></span></div>
+                </div>
+                <div id="lightboxAdmin" class="lightbox-admin-controls hidden">
+                    <button id="editItemBtn" class="btn btn-secondary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+                        </svg>
+                        Edit
+                    </button>
+                    <button id="deleteImageBtn" class="btn btn-danger">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3,6 5,6 21,6"/>
+                            <path d="M19,6v14a2,2 0 0,1-2,2H7a2,2 0 0,1-2-2V6m3,0V4a2,2 0 0,1 2-2h4a2,2 0 0,1 2,2v2"/>
+                        </svg>
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/db.js?v=20260227-1"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+    <script src="js/gallery.js?v=20260227-1"></script>
+    <script src="js/admin.js?v=20260227-1"></script>
+    <script src="js/lightbox.js?v=20260227-1"></script>
+    <script src="js/theme.js?v=20260227-1"></script>
+</body>
+</html>
