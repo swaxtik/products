@@ -130,7 +130,7 @@ function showInstallPromotion() {
 }
 
 // Handle successful app installation
-window.addEventListener('appinstalled', (evt) => {
+window.addEventListener('appinstalled', () => {
     console.log('App was installed successfully');
     
     // Remove install banner if it exists
