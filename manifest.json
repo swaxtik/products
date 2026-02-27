@@ -1,0 +1,63 @@
+{
+    "name": "Abharan Jewelry Catalogue",
+    "short_name": "Jewelry Catalogue",
+    "description": "Showcase your finest jewelry collections with this elegant gallery app",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FBF9F7",
+    "theme_color": "#8B1538",
+    "orientation": "portrait-primary",
+    "categories": ["jewelry", "gallery", "business", "showcase"],
+    "lang": "en",
+    "dir": "ltr",
+    "icons": [
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3R5bGU9ImJhY2tncm91bmQ6ICM4QjE1Mzg7Ij48cGF0aCBkPSJNNiAzaDEybDQgNi0xMCAxMS0xMC0xMSA0LTZ6Ii8+PHBhdGggZD0iTTExIDNoMnoiLz48L3N2Zz4=",
+            "sizes": "192x192",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjEuNSIgc3R5bGU9ImJhY2tncm91bmQ6ICM4QjE1Mzg7Ij48cGF0aCBkPSJNNiAzaDEybDQgNi0xMCAxMS0xMC0xMSA0LTZ6Ii8+PHBhdGggZD0iTTExIDNoMnoiLz48L3N2Zz4=",
+            "sizes": "512x512",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIwIiBoZWlnaHQ9IjU2OCIgdmlld0JveD0iMCAwIDMyMCA1NjgiIGZpbGw9Im5vbmUiIHN0eWxlPSJiYWNrZ3JvdW5kOiAjRkJGOUY3OyI+PHJlY3QgeD0iMjAiIHk9IjgwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE2MCIgcng9IjE2IiBmaWxsPSIjOEIxNTM4IiBvcGFjaXR5PSIwLjEiLz48Y2lyY2xlIGN4PSIxNjAiIGN5PSIxNjAiIHI9IjQwIiBmaWxsPSIjOEIxNTM4Ii8+PHBhdGggZD0iTTE0MiAxNDJoMzZsOCAxMi0yMCAyMi0yMC0yMiA4LTEyeiIgZmlsbD0id2hpdGUiLz48dGV4dCB4PSIxNjAiIHk9IjI4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzhCMTUzOCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZvbnQtd2VpZ2h0PSI3MDAiPkVsZWdhbnQgSmV3ZWxyeTwvdGV4dD48dGV4dCB4PSIxNjAiIHk9IjMxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzVENEUzNyIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiPlNob3djYXNlIHlvdXIgZmluZXN0IGNvbGxlY3Rpb25zPC90ZXh0Pjwvc3ZnPg==",
+            "sizes": "320x568",
+            "type": "image/svg+xml",
+            "form_factor": "narrow",
+            "label": "Mobile view of jewelry gallery"
+        },
+        {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4MCIgaGVpZ2h0PSI3MjAiIHZpZXdCb3g9IjAgMCAxMjgwIDcyMCIgZmlsbD0ibm9uZSIgc3R5bGU9ImJhY2tncm91bmQ6ICNGQkY5Rjc7Ij48cmVjdCB4PSI0MCIgeT0iODAiIHdpZHRoPSIzNjAiIGhlaWdodD0iMjQwIiByeD0iMTYiIGZpbGw9IiM4QjE1MzgiIG9wYWNpdHk9IjAuMSIvPjxyZWN0IHg9IjQ2MCIgeT0iODAiIHdpZHRoPSIzNjAiIGhlaWdodD0iMjQwIiByeD0iMTYiIGZpbGw9IiM4QjE1MzgiIG9wYWNpdHk9IjAuMSIvPjxyZWN0IHg9Ijg4MCIgeT0iODAiIHdpZHRoPSIzNjAiIGhlaWdodD0iMjQwIiByeD0iMTYiIGZpbGw9IiM4QjE1MzgiIG9wYWNpdHk9IjAuMSIvPjx0ZXh0IHg9IjY0MCIgeT0iNDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM4QjE1MzgiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjMyIiBmb250LXdlaWdodD0iNzAwIj5KZXdlbHJ5IENvbGxlY3Rpb25zPC90ZXh0Pjx0ZXh0IHg9IjIyMCIgeT0iMzgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMkMxODEwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyMCIgZm9udC13ZWlnaHQ9IjYwMCI+R29sZCBSaW5nczwvdGV4dD48dGV4dCB4PSI2NDAiIHk9IjM4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzJDMTgxMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI2MDAiPkRpYW1vbmQgTmVja2xhY2VzPC90ZXh0Pjx0ZXh0IHg9IjEwNjAiIHk9IjM4MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzJDMTgxMCIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjAiIGZvbnQtd2VpZ2h0PSI2MDAiPlBlYXJsIEpld2Vscnk8L3RleHQ+PC9zdmc+",
+            "sizes": "1280x720",
+            "type": "image/svg+xml",
+            "form_factor": "wide",
+            "label": "Desktop view of jewelry collections"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Browse Collections",
+            "short_name": "Browse",
+            "description": "View all jewelry collections",
+            "url": "/gallery.html",
+            "icons": [
+                {
+                    "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ3aGl0ZSIgc3Ryb2tlLXdpZHRoPSIxLjUiIHN0eWxlPSJiYWNrZ3JvdW5kOiAjOEIxNTM4OyI+PHBhdGggZD0iTTYgM2gxMmw0IDYtMTAgMTEtMTAtMTEgNC02eiIvPjxwYXRoIGQ9Ik0xMSAzaDJ6Ii8+PC9zdmc+",
+                    "sizes": "96x96"
+                }
+            ]
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+    "edge_side_panel": {
+        "preferred_width": 400
+    }
+}
